@@ -1,7 +1,7 @@
 import React from "react";
 import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
-import { HomePage } from "../HomePage";
+import HomePage from "../HomePage";
 
 
 export const routes = {

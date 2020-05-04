@@ -8,14 +8,14 @@ export const StyledHeader = styled.header`
     height: 100px;
     padding: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     background-color: #abbbcc;
     color: white;
     font-family: 'Manrope', sans-serif;
     @media (max-width: 800px) {
-        height: 150px;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
     }
 `

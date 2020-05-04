@@ -7,11 +7,11 @@ import {StyledSelect} from './styled';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(0),
       minWidth: 120,
     },
     selectEmpty: {
-      marginTop: theme.spacing(2),
+      marginTop: theme.spacing(1),
     },
   }));
 
@@ -20,10 +20,16 @@ export function SelectDevice(props) {
     return(
         <Fragment>
             <FormControl className={classes.formControl}>
-                <InputLabel id="selectLabel">Selecione uma opção</InputLabel>
-                <StyledSelect labelId="selectLabel" name="device" value={props.value} onChange={props.onChange}>
-                    <MenuItem value="PC">Computador</MenuItem>
-                    <MenuItem value="Celular">Celular</MenuItem>
+                <InputLabel id="selectLabel">Selecione um Dia</InputLabel>
+                <StyledSelect labelId="selectLabel" name="day" value={props.value} onChange={props.onChange}>
+                    <MenuItem></MenuItem>
+                    <MenuItem value="Segunda">Segunda</MenuItem>
+                    <MenuItem value="Terça">Terça</MenuItem>
+                    <MenuItem value="Quarta">Quarta</MenuItem>
+                    <MenuItem value="Quinta">Quinta</MenuItem>
+                    <MenuItem value="Sexta">Sexta</MenuItem>
+                    <MenuItem value="Sábado">Sábado</MenuItem>
+                    <MenuItem value="Domingo">Domingo</MenuItem>
                 </StyledSelect>
             </FormControl>
         </Fragment>

@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyledHeader, StyledLogo, LogoContainer, SearchContainer, ButtonMenu, StyledButton, StyledInput } from './styled';
-import labenutube from '../../images/Labenutube2.png';
+import { StyledHeader } from './styled';
 
 export function Header (props) {
     
     return (
         <StyledHeader>
-
+            <h1>Week Planner</h1>
         </StyledHeader>
     )
 }
