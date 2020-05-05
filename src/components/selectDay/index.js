@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export function SelectDevice(props) {
+export function SelectDay(props) {
     const classes = useStyles()
     return(
         <Fragment>
@@ -36,4 +36,4 @@ export function SelectDevice(props) {
     )
 }
 
-export default SelectDevice;
+export default SelectDay;

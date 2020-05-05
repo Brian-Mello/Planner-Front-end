@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SelectDevice from '../../components/selectDevice';
+import SelectDay from '../../components/selectDay';
 import { FormDiv, Form, StyledTextField, StyledButtonForms} from './styled';
 import { createTask } from '../../actions'
 
@@ -53,7 +53,7 @@ export class FormContainer extends React.Component{
                         label="Tarefa"
                         required
                     />
-                    <SelectDevice
+                    <SelectDay
                         name="day"
                         value={day}
                         onChange={this.handleSelectDayOnChange}

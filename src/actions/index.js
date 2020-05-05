@@ -67,6 +67,7 @@ export const createTask = (text, day) => async(dispatch) => {
             }
         })
         
+        window.alert(`Tarefa '${text}' criada para ${day}!`)
         dispatch(getTasks())
     }catch(err){
         window.alert("Erro ao criar a tarefa!")
@@ -80,18 +81,22 @@ export const setTaskId = (taskId) => ({
     }
 })
 
-export const deleteTask = (taskId) => async(dispatch) => {
+export const deleteTask = (text, taskId) => async(dispatch) => {
 
     const accessToken = window.localStorage.getItem("accessToken")
 
     try{
-        await axios.delete(`${baseUrl}/tasks/deleteTask/${taskId}`, {
-            headers: {
-                Authorization: accessToken
-            }
-        })
-        window.alert("Tarefa deletada com successo!")
-        dispatch(getTasks())
+        if(window.confirm("Você deseja deletar essa tarefa?")){
+
+            await axios.delete(`${baseUrl}/tasks/deleteTask/${taskId}`, {
+                headers: {
+                    Authorization: accessToken
+                }
+            })
+            window.alert(`Tarefa '${text}' deletada com successo!`)
+            dispatch(getTasks())
+        }
+            
     } catch(err){
         window.alert("Erro ao deletar a tarefa!")
     }
