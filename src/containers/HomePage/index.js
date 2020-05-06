@@ -19,14 +19,8 @@ export class HomePage extends React.Component {
   }
 
   componentDidMount() {
-    const accessToken = window.localStorage.getItem("accessToken");
-    
-    if (!accessToken) {
-      const id = v4();
-      this.props.checkUser(id);
-    } else {
-      this.props.getTasks();
-    }
+    this.props.checkUser();
+    this.props.getTasks();
   }
 
   handleDeleteTask = (text, taskId) => {
@@ -98,7 +92,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  checkUser: (id) => dispatch(checkUser(id)),
+  checkUser: () => dispatch(checkUser()),
   getTasks: () => dispatch(getTasks()),
   createTask: (text, day) => dispatch(createTask(text, day)),
   deleteTask: (text, taskId) => dispatch(deleteTask(text, taskId)),

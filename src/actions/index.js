@@ -4,19 +4,31 @@ import axios from 'axios';
 const baseUrl = "https://rsxqac02u2.execute-api.us-east-1.amazonaws.com/Planner"
 
 // User
-export const checkUser = (id) => async (dispatch) => {
+export const checkUser = () => async (dispatch) => {
+
+    const ip = await axios.get("https://ifconfig.me")
 
     const user = {
-        id
+        id: ip.data
     }
 
+    const accessToken = window.localStorage.getItem("accessToken")
     try{
+        if(accessToken){
+            const response = await axios.post(`${baseUrl}/checkUser`, user)
 
-        const response = await axios.post(`${baseUrl}/checkUser`, user)
+            window.localStorage.setItem("accessToken", response.data.accessToken)
+    
+            console.log(`Usuário ${ip.data} Logado com sucesso!`)
 
-        window.localStorage.setItem("accessToken", response.data.accessToken)
+            dispatch(getTasks())
+        } else {
+            const response = await axios.post(`${baseUrl}/checkUser`, user)
 
-        window.alert(`Usuário ${id} criado com sucesso!`)
+            window.localStorage.setItem("accessToken", response.data.accessToken)
+    
+            console.log(`Usuário ${ip.data} Criado com sucesso!`)
+        }
 
     } catch(err){
         window.alert("Erro na authenticaçao do usuário!")
@@ -45,7 +57,7 @@ export const getTasks = () => async (dispatch) => {
             }
         })
         dispatch(setTasks(response.data.tasks))
-
+        console.log(response.data.tasks)
     } catch(err){
         window.alert("Erro ao renderizar as tarefas!")
     }

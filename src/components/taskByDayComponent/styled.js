@@ -15,7 +15,6 @@ export const Completed = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   :hover {
     background-color: green;
     cursor: pointer;
@@ -28,7 +27,9 @@ export const Task = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #b2b2b2;
+  background-color: #e0e0e0;
+  border-right: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
   @media (max-width: 500px) {
     width: 90%;
   }
@@ -40,7 +41,6 @@ export const Delete = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   :hover {
     background-color: red;
     cursor: pointer;
